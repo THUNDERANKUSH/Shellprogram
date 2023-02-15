@@ -1,0 +1,21 @@
+addDigits(){
+sum=0
+n=$1
+while [[ n -gt 0 ]];
+do
+temp="$(( n % 10 ))"
+sum="$(($sum + $temp))"
+n="$(( $n / 10 ))"
+done
+return $sum
+}
+
+read -p "Enter the number: " n
+addDigits $n
+ret=$?
+while [[ $ret -ge 10 ]];
+do
+addDigits $ret
+ret=$?
+done
+echo "$ret"
