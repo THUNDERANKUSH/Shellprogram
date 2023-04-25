@@ -1,0 +1,43 @@
+5. Write a shell script that deletes all the even-numbered lines in a text file.
+#!/bin/bash
+
+# Check that a file has been provided as an argument
+if [ $# -eq 0 ]; then
+    echo "Please provide a file name as an argument"
+    exit 1
+fi
+
+# Check that the file exists and is a regular file
+if [ ! -f "$1" ]; then
+    echo "$1 is not a file or does not exist"
+    exit 1
+fi
+
+# Delete all even-numbered lines in the file using sed
+sed -i.bak '1d;n;d' "$1"
+
+# Print a confirmation message
+echo "Deleted all even-numbered lines in $1"
+
+report[1].txt
+Displaying report[1].txt.
+Shell Programs in Files
+Hemantha Kumar Kalluri
+•
+Apr 18
+10 points
+Due Apr 20
+1. Write a
+shell script that reads the contents in a text file and removes all the blank
+spaces in
+
+them 
+
+2. Write a shell script to translate all the characters
+to lowercase in a given text file.
+
+3. Write a shell script to combine any three text files
+into a single file (append them in the order as they appear in the arguments)
+and display the word count.
+4. Write a shell script that, given a file name as the
+argument, will write the even-numbered line to a file with the name evenfile and odd-numbered lines to a file called oddfile.
