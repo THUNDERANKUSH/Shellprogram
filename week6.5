@@ -1,0 +1,54 @@
+5. Write a shell program to simulate a simple calculator.
+
+#!/bin/bash
+
+# function to add two numbers
+addition() {
+  echo "$1 + $2 = $(($1 + $2))"
+}
+
+# function to subtract two numbers
+subtraction() {
+  echo "$1 - $2 = $(($1 - $2))"
+}
+
+# function to multiply two numbers
+multiplication() {
+  echo "$1 * $2 = $(($1 * $2))"
+}
+
+# function to divide two numbers
+division() {
+  if [ $2 -eq 0 ]; then
+    echo "Error: division by zero"
+  else
+    echo "$1 / $2 = $(($1 / $2))"
+  fi
+}
+
+# read the operator and two numbers from user input
+echo "Enter operator (+, -, *, /):"
+read operator
+echo "Enter first number:"
+read num1
+echo "Enter second number:"
+read num2
+
+# call the appropriate function based on the operator
+case $operator in
+  +)
+    addition $num1 $num2
+    ;;
+  -)
+    subtraction $num1 $num2
+    ;;
+  \*)
+    multiplication $num1 $num2
+    ;;
+  /)
+    division $num1 $num2
+    ;;
+  *)
+    echo "Error: invalid operator"
+    ;;
+esac
